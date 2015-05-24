@@ -1,5 +1,7 @@
 package library.books;
 
+import java.util.Date;
+
 /**
  * Created by Marcio on 24/05/2015.
  */
@@ -11,6 +13,7 @@ public class Book {
     private int edition;
     private int bookNumber;
     private boolean available;
+    private Date returnDate;
 
     public Book(String title, String author, String publisher, int year, int edition, int bookNumber) {
         this.title = title;
@@ -76,5 +79,13 @@ public class Book {
 
     public boolean isAvailable() {
         return available;
+    }
+
+    public void setReturnDate(Date returnDate) {
+        this.returnDate = returnDate;
+    }
+
+    public Date getReturnDate() {
+        return returnDate;
     }
 }
