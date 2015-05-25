@@ -1,17 +1,22 @@
 package library.users;
 
+import java.util.Date;
+
 /**
  * Created by Marcio on 24/05/2015.
  */
 public abstract class User {
     private String firstName;
     private String lastName;
-    private int userNumber;
+    private int userID;
+    private boolean blocked;
+    private Date unblockDate;
 
-    protected User(String firstName, String lastName, int userNumber) {
+    protected User(String firstName, String lastName, int userID) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.userNumber = userNumber;
+        this.userID = userID;
+        this.blocked = false;
     }
 
     public void setFirstName(String firstName) {
@@ -30,11 +35,27 @@ public abstract class User {
         return lastName;
     }
 
-    public void setUserNumber(int userNumber) {
-        this.userNumber = userNumber;
+    public void setUserID(int userID) {
+        this.userID = userID;
     }
 
-    public int getUserNumber() {
-        return userNumber;
+    public int getUserID() {
+        return userID;
+    }
+
+    public void setBlocked(boolean blocked) {
+        this.blocked = blocked;
+    }
+
+    public boolean isBlocked() {
+        return blocked;
+    }
+
+    public void setUnblockDate(Date unblockDate) {
+        this.unblockDate = unblockDate;
+    }
+
+    public Date getUnblockDate() {
+        return unblockDate;
     }
 }

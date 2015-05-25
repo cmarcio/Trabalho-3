@@ -8,22 +8,22 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.GridPane?>
 
-<Pane prefHeight="450.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="gui.Controller">
+<Pane prefHeight="400.0" prefWidth="300.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="gui.MainWindowController">
   <children>
-    <GridPane layoutX="200.0" layoutY="210.0">
+    <GridPane layoutX="69.0" layoutY="140.0" prefWidth="163.0">
       <children>
-        <Button fx:id="addUser" mnemonicParsing="false" text="Button" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-        <Button fx:id="addBook" mnemonicParsing="false" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-        <Button fx:id="borrowBook" mnemonicParsing="false" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-        <Button fx:id="returnBook" mnemonicParsing="false" text="Button" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+        <Button fx:id="addUser" mnemonicParsing="false" onAction="#handleButtonAction" text="%addUser" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" />
+        <Button fx:id="addBook" mnemonicParsing="false" onAction="#handleButtonAction" text="%addBook" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+        <Button fx:id="borrowBook" mnemonicParsing="false" onAction="#handleButtonAction" text="%borrowBook" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
+        <Button fx:id="returnBook" mnemonicParsing="false" onAction="#handleButtonAction" text="%returnBook" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" />
       </children>
       <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
       </columnConstraints>
       <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       </rowConstraints>
     </GridPane>
