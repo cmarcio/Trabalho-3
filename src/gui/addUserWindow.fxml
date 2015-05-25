@@ -8,21 +8,21 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.GridPane?>
 
-<Pane prefHeight="400.0" prefWidth="300.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="gui.MainWindowController">
+<Pane prefHeight="300.0" prefWidth="500.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="gui.AddUserController">
   <children>
-    <GridPane layoutX="20.0" layoutY="125.0" prefWidth="260.0">
+    <GridPane layoutX="120.0" layoutY="75.0" prefWidth="260.0">
       <children>
-        <TextField fx:id="firstName" prefWidth="200.0" promptText="%firstName" text="%firstName" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-        <TextField fx:id="lastName" prefWidth="200.0" promptText="%lastName" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-        <TextField fx:id="userID" prefWidth="200.0" promptText="%userId" text="" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-        <SplitMenuButton id="userType" mnemonicParsing="false" prefWidth="260.0" text="%group" GridPane.columnIndex="0" GridPane.rowIndex="3">
+        <TextField id="firstName" fx:id="firstNameField" prefWidth="200.0" promptText="%firstName" text="%firstName" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField id="lastName" fx:id="lastNameField" prefWidth="200.0" promptText="%lastName" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField id="userID" fx:id="userIdField" prefWidth="200.0" promptText="%userId" text="" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <SplitMenuButton fx:id="userType" mnemonicParsing="false" prefWidth="260.0" text="%group" GridPane.columnIndex="0" GridPane.rowIndex="3">
           <items>
             <MenuItem mnemonicParsing="false" text="%student" />
             <MenuItem mnemonicParsing="false" text="%teacher" />
             <MenuItem mnemonicParsing="false" text="%other" />
           </items>
         </SplitMenuButton>
-        <Button contentDisplay="LEFT" mnemonicParsing="false" text="%ok" textAlignment="LEFT" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+        <Button fx:id="okBtn" contentDisplay="LEFT" mnemonicParsing="false" onAction="#handleButtonAction" text="%ok" textAlignment="LEFT" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
       </children>
       <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
