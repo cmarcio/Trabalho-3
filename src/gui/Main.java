@@ -25,7 +25,6 @@ public class Main extends Application {
         Locale currentLocale;
 
         currentLocale = Locale.getDefault();
-
         try {   // Try to start the resource bundle with the system default language
             messages = ResourceBundle.getBundle("MessagesBundle", currentLocale);
         } catch(MissingResourceException mre){  // If trows exception set language to english

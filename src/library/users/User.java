@@ -8,16 +8,29 @@ import java.util.Date;
 public abstract class User {
     private String firstName;
     private String lastName;
-    private int userID;
+    private String email;
+    private long userId;
     private boolean blocked;
     private Date unblockDate;
 
-    protected User(String firstName, String lastName, int userID) {
+    protected User(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.userID = userID;
+        this.email = email;
         this.blocked = false;
     }
+
+    protected User(String firstName, String lastName, String email, long userId, boolean status, Date date) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.blocked = false;
+        this.userId = userId;
+        this.blocked = status;
+        this.unblockDate = date;
+    }
+
+    public abstract String getGroup();
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -35,12 +48,20 @@ public abstract class User {
         return lastName;
     }
 
-    public void setUserID(int userID) {
-        this.userID = userID;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public int getUserID() {
-        return userID;
+    public String getEmail() {
+        return email;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public long getUserId() {
+        return userId;
     }
 
     public void setBlocked(boolean blocked) {

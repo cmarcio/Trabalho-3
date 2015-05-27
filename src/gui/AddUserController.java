@@ -10,7 +10,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.SplitMenuButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import library.users.Student;
+import library.users.User;
+import library.users.UsersFile;
 
+import java.io.File;
 import java.io.IOException;
 
 /**
@@ -22,18 +26,31 @@ public class AddUserController {
     @FXML private Button cancelBtn;
     @FXML private TextField firstNameField;
     @FXML private TextField lastNameField;
+    @FXML private TextField emailField;
     @FXML private TextField userIdField;
 
-    // Verify the conditions to processed with the application when the ok button is pressed
-    // Create a new user when everything is correct
+    // Verifica se todos os campos já estão preenchido
+    // Verifica se o usuário já existe
+    // Se essas condições forem satisfeitas o novo usuário é criado e colocado no arquivo de dados
     @FXML public void handleOkButtonAction(ActionEvent event) throws IOException {
-        if (firstNameField.getCharacters().toString().isEmpty() || lastNameField.getCharacters().toString().isEmpty()) {
+        // Exibe uma mensagem de erro indicando que os campos não foram preenchidos
+        if (firstNameField.getCharacters().toString().isEmpty() || lastNameField.getCharacters().toString().isEmpty() || emailField.getCharacters().toString().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle(Main.getResourceBundle().getString("warning"));
             alert.setHeaderText(null);
             alert.setContentText(Main.getResourceBundle().getString("blankFieldWarning"));
 
             alert.showAndWait();
+        }
+
+        // Cria o novo usuário e adiciona ao arquivo
+        else {
+            // Cria um objeto de manipulção de dados
+            UsersFile file = new UsersFile("UsersReg.txt");
+            // Cria um objeto do tipo usuário
+            User user = new Student(firstNameField.getText(), lastNameField.getText(), emailField.getText());
+            // Salva o usuário
+            file.saveUser(user);
         }
     }
 
