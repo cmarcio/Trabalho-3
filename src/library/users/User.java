@@ -13,18 +13,19 @@ public abstract class User {
     private boolean blocked;
     private Date unblockDate;
 
-    protected User(String firstName, String lastName, String email) {
+    public User(String firstName, String lastName, String email, long userId) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.userId = userId;
         this.blocked = false;
+        this.unblockDate = null;
     }
 
-    protected User(String firstName, String lastName, String email, long userId, boolean status, Date date) {
+    public User(String firstName, String lastName, String email, long userId, boolean status, Date date) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.blocked = false;
         this.userId = userId;
         this.blocked = status;
         this.unblockDate = date;

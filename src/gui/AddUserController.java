@@ -14,7 +14,6 @@ import library.users.Student;
 import library.users.User;
 import library.users.UsersFile;
 
-import java.io.File;
 import java.io.IOException;
 
 /**
@@ -29,12 +28,14 @@ public class AddUserController {
     @FXML private TextField emailField;
     @FXML private TextField userIdField;
 
-    // Verifica se todos os campos já estão preenchido
-    // Verifica se o usuário já existe
-    // Se essas condições forem satisfeitas o novo usuário é criado e colocado no arquivo de dados
     @FXML public void handleOkButtonAction(ActionEvent event) throws IOException {
-        // Exibe uma mensagem de erro indicando que os campos não foram preenchidos
-        if (firstNameField.getCharacters().toString().isEmpty() || lastNameField.getCharacters().toString().isEmpty() || emailField.getCharacters().toString().isEmpty()) {
+        // Cria um objeto de manipulação de dados
+        UsersFile file = new UsersFile("UsersReg.txt");
+
+        // Verifica se todos os campos já estão preenchidos
+        if (firstNameField.getText().isEmpty() || lastNameField.getText().isEmpty()
+                || emailField.getText().isEmpty() || userIdField.getText().isEmpty()) {
+            // Exibe uma mensagem de erro indicando que os campos não foram preenchidos
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle(Main.getResourceBundle().getString("warning"));
             alert.setHeaderText(null);
@@ -43,17 +44,40 @@ public class AddUserController {
             alert.showAndWait();
         }
 
+        // Verifica se o número passado como id é válido
+        else if (! isValidNumber(userIdField)) {
+            // Exibe mensagem de erro
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle(Main.getResourceBundle().getString("warning"));
+            alert.setHeaderText(Main.getResourceBundle().getString("invalidEntry"));
+            alert.setContentText(Main.getResourceBundle().getString("onlyNumber"));
+
+            alert.showAndWait();
+        }
+
+        // Verifica se o usuário já não foi cadastrado
+       /* else if (file.searchID(Long.getLong(userIdField.getCharacters().toString())) != null) {
+            // Exibe mensagem de erro
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle(Main.getResourceBundle().getString("error"));
+            alert.setHeaderText(null);
+            alert.setContentText(Main.getResourceBundle().getString("userAlreadyRegistered"));
+
+            alert.showAndWait();
+        }*/
+
         // Cria o novo usuário e adiciona ao arquivo
         else {
-            // Cria um objeto de manipulção de dados
-            UsersFile file = new UsersFile("UsersReg.txt");
+            System.out.printf("AQUI %s\n", firstNameField.getText());
             // Cria um objeto do tipo usuário
-            User user = new Student(firstNameField.getText(), lastNameField.getText(), emailField.getText());
+            User user = new Student(firstNameField.getText(), lastNameField.getText(),
+                    //emailField.getText(), Long.getLong(userIdField.getCharacters().toString()));
             // Salva o usuário
-            file.saveUser(user);
+            //file.storeUser(user);
         }
     }
 
+    // Se o botão cancelar for pressionado, volta ao menu principal
     @FXML public void handleCancelButtonAction(ActionEvent event) throws IOException {
         Stage stage;
         Parent root;
@@ -65,4 +89,21 @@ public class AddUserController {
         stage.setScene(scene);
         stage.show();
     }
+
+    private boolean isValidNumber(TextField field) {
+        String word = field.getCharacters().toString();
+        for (int i = 0; i < word.length(); i++) {
+            if (! Character.isDigit(word.charAt(i))) return false;
+        }
+        return true;
+    }
+
+    private boolean isValidName(TextField field) {
+        String word = field.getCharacters().toString();
+        for (int i = 0; i < word.length(); i++) {
+            if ( ! Character.isLetter(word.charAt(i))) return false;
+        }
+        return true;
+    }
 }
+
