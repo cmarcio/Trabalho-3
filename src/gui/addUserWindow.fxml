@@ -19,9 +19,9 @@
         <TextField fx:id="userIdField" prefWidth="200.0" promptText="%userId" GridPane.columnIndex="0" GridPane.rowIndex="3" />
         <SplitMenuButton fx:id="userType" mnemonicParsing="false" prefWidth="260.0" text="%group" GridPane.columnIndex="0" GridPane.rowIndex="4">
           <items>
-            <MenuItem mnemonicParsing="false" text="%student" />
-            <MenuItem mnemonicParsing="false" text="%teacher" />
-            <MenuItem mnemonicParsing="false" text="%other" />
+            <MenuItem mnemonicParsing="false" onAction="#handleSplitMenu" text="%student" fx:id="studentMenu" />
+            <MenuItem mnemonicParsing="false" onAction="#handleSplitMenu" text="%teacher" fx:id="teacherMenu" />
+            <MenuItem mnemonicParsing="false" onAction="#handleSplitMenu" text="%communityMember" fx:id="communityMenu" />
           </items>
         </SplitMenuButton>
         <GridPane GridPane.columnIndex="0" GridPane.rowIndex="5">

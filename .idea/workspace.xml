@@ -5,7 +5,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/AddUserController.java" afterPath="$PROJECT_DIR$/src/gui/AddUserController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MessagesBundle_en_US.properties" afterPath="$PROJECT_DIR$/src/MessagesBundle_en_US.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MessagesBundle_pt_BR.properties" afterPath="$PROJECT_DIR$/src/MessagesBundle_pt_BR.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/library/users/UsersFile.java" afterPath="$PROJECT_DIR$/src/library/users/UsersFile.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/addUserWindow.fxml" afterPath="$PROJECT_DIR$/src/gui/addUserWindow.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -79,21 +79,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UsersReg.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/UsersReg.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="AddUserController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gui/AddUserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.1097561">
-              <caret line="88" column="25" selection-start-line="88" selection-start-column="25" selection-end-line="88" selection-end-column="25" />
+            <state vertical-scroll-proportion="-1.2951219">
+              <caret line="76" column="22" selection-start-line="76" selection-start-column="22" selection-end-line="76" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -114,8 +104,8 @@
       <file leaf-file-name="MessagesBundle_en_US.properties" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MessagesBundle_en_US.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.896552">
-              <caret line="22" column="14" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="14" />
+            <state vertical-scroll-proportion="-4.6896553">
+              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -127,8 +117,8 @@
       <file leaf-file-name="MessagesBundle_pt_BR.properties" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MessagesBundle_pt_BR.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.896552">
-              <caret line="22" column="40" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
+            <state vertical-scroll-proportion="-0.82758623">
+              <caret line="8" column="38" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -343,20 +333,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Trabalho-3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Trabalho-3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -706,7 +682,7 @@
       <workItem from="1432659887315" duration="307000" />
       <workItem from="1432675005703" duration="9863000" />
       <workItem from="1432748425051" duration="11712000" />
-      <workItem from="1432770878655" duration="5747000" />
+      <workItem from="1432770878655" duration="10001000" />
     </task>
     <task id="LOCAL-00001" summary="Classe criadas">
       <created>1432488352283</created>
@@ -750,11 +726,17 @@
       <option name="project" value="LOCAL" />
       <updated>1432760152478</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Cadastro modificado">
+      <created>1432782276659</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1432782276659</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79644000" />
+    <option name="totallyTimeSpent" value="83898000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -767,7 +749,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1320" height="784" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924962" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -780,7 +762,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32924962" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23174603" sideWeight="0.6703755" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23174603" sideWeight="0.6703755" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924962" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -819,7 +801,8 @@
     <MESSAGE value="Botão cancelar adicionado" />
     <MESSAGE value="Salva dados em arquivo" />
     <MESSAGE value="Cadastro de usuários quase pronto" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cadastro de usuários quase pronto" />
+    <MESSAGE value="Cadastro modificado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cadastro modificado" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1240,14 +1223,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/library/users/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/library/users/UsersFile.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1258,18 +1233,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/UsersReg.txt">
+    <entry file="file://$PROJECT_DIR$/src/library/users/User.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MessagesBundle_pt_BR.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.896552">
-          <caret line="22" column="40" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
+        <state vertical-scroll-proportion="-0.82758623">
+          <caret line="8" column="38" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
           <folding />
         </state>
       </provider>
@@ -1279,8 +1254,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MessagesBundle_en_US.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.896552">
-          <caret line="22" column="14" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="14" />
+        <state vertical-scroll-proportion="-4.6896553">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1290,8 +1265,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/AddUserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1097561">
-          <caret line="88" column="25" selection-start-line="88" selection-start-column="25" selection-end-line="88" selection-end-column="25" />
+        <state vertical-scroll-proportion="-1.2951219">
+          <caret line="76" column="22" selection-start-line="76" selection-start-column="22" selection-end-line="76" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
