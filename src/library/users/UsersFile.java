@@ -32,14 +32,16 @@ public class UsersFile {
             String email = user.getEmail();
             String userId = Long.toString(user.getUserId());
             String type = user.getGroup();
-            String data = user.getUnblockDate().toString();
+            String date = null;
             String status;
-            if (user.isBlocked())
+            if (user.isBlocked()) {
                 status = "BLOCKED";
+                date = user.getUnblockDate().toString();
+            }
             else status = "UNBLOCKED";
 
             // Escreve os dados do usuário no arquivo
-            output.printf("%s, %s, %s, %s, %s, %s, %s\n", firstName, lastName, email, userId, type, status, data);
+            output.printf("%s,%s,%s,%s,%s,%s,%s\n", firstName, lastName, email, userId, type, status, date);
 
             output.close();
             fileWriter.close();
@@ -49,7 +51,7 @@ public class UsersFile {
         }
     }
 
-    public User searchID(long ID) {
+    public User searchID(String ID) {
         FileReader reader = null;
         User userFound = null;
         String line;
@@ -62,7 +64,8 @@ public class UsersFile {
                 // Quebra a linha em partes
                 String[] fields = line.split(",");
                 // Verifica se o campo user ID está nesse registro
-                if (fields[3].equals(Long.toString(ID))) {
+                if (fields[3].equals(ID)) {
+                    System.out.println("AQUI\n");
                     // Cria um novo objeto de acordo com o registro lido
                     userFound = createUserByReg(fields);
 
@@ -73,6 +76,7 @@ public class UsersFile {
             }
         } catch (IOException e) {
             e.printStackTrace();
+            return null;
         }
         return userFound;
     }
@@ -82,12 +86,12 @@ public class UsersFile {
         String firstName = fields[0];
         String lastName = fields[1];
         String email = fields[2];
-        long userId = Long.getLong(fields[3]);
+        long userId = Long.parseLong(fields[3]);
         boolean blocked = fields[5].equals("BLOCKED");
         Date date;
         if (blocked)
-            date = null;
-        else date = new Date(fields[6]);
+            date = new Date(fields[6]);
+        else date = null;
 
         User newUser = null;
 

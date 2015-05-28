@@ -56,34 +56,44 @@ public class AddUserController {
         }
 
         // Verifica se o usuário já não foi cadastrado
-       /* else if (file.searchID(Long.getLong(userIdField.getCharacters().toString())) != null) {
+        else if (file.searchID(userIdField.getText()) != null) {
             // Exibe mensagem de erro
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle(Main.getResourceBundle().getString("error"));
-            alert.setHeaderText(null);
+            alert.setHeaderText(Main.getResourceBundle().getString("invalidEntry"));
             alert.setContentText(Main.getResourceBundle().getString("userAlreadyRegistered"));
 
             alert.showAndWait();
-        }*/
+        }
 
         // Cria o novo usuário e adiciona ao arquivo
         else {
-            System.out.printf("AQUI %s\n", firstNameField.getText());
             // Cria um objeto do tipo usuário
-            User user = new Student(firstNameField.getText(), lastNameField.getText(),
-                    //emailField.getText(), Long.getLong(userIdField.getCharacters().toString()));
+            User user = new Student(firstNameField.getText(), lastNameField.getText(), emailField.getText(), Long.parseLong(userIdField.getText()));
             // Salva o usuário
-            //file.storeUser(user);
+            file.storeUser(user);
+
+            // Exibe mensagem de exito
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle(Main.getResourceBundle().getString("success"));
+            alert.setHeaderText(null);
+            alert.setContentText(Main.getResourceBundle().getString("userRegistered"));
+            alert.showAndWait();
+
+            // Volta ao menu inicial
+            Stage stage=(Stage) cancelBtn.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("mainWindow.fxml"), Main.getResourceBundle());
+
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
         }
     }
 
     // Se o botão cancelar for pressionado, volta ao menu principal
     @FXML public void handleCancelButtonAction(ActionEvent event) throws IOException {
-        Stage stage;
-        Parent root;
-
-        stage=(Stage) cancelBtn.getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("mainWindow.fxml"), Main.getResourceBundle());
+        Stage stage=(Stage) cancelBtn.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("mainWindow.fxml"), Main.getResourceBundle());
 
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -91,7 +101,7 @@ public class AddUserController {
     }
 
     private boolean isValidNumber(TextField field) {
-        String word = field.getCharacters().toString();
+        String word = field.getText();
         for (int i = 0; i < word.length(); i++) {
             if (! Character.isDigit(word.charAt(i))) return false;
         }
@@ -99,7 +109,7 @@ public class AddUserController {
     }
 
     private boolean isValidName(TextField field) {
-        String word = field.getCharacters().toString();
+        String word = field.getText();
         for (int i = 0; i < word.length(); i++) {
             if ( ! Character.isLetter(word.charAt(i))) return false;
         }
