@@ -23,6 +23,7 @@ public class Book {
         this.edition = edition;
         this.bookNumber = bookNumber;
         this.available = true;
+        this.returnDate = null;
     }
 
     public void setTitle(String title) {

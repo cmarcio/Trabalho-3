@@ -121,6 +121,7 @@ public class AddUserController {
             userType.setText(communityMenu.getText());
     }
 
+    // Verifica se o número digitado possui algum caractere não numérico
     private boolean isValidNumber(TextField field) {
         String word = field.getText();
         for (int i = 0; i < word.length(); i++) {
@@ -129,6 +130,7 @@ public class AddUserController {
         return true;
     }
 
+    // Ainda não decidi se vou usar isso
     private boolean isValidName(TextField field) {
         String word = field.getText();
         for (int i = 0; i < word.length(); i++) {

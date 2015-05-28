@@ -19,12 +19,16 @@ public class MainWindowController {
     @FXML void handleButtonAction(ActionEvent event) throws IOException {
         Stage stage;
         Parent root;
-
+        // Se o botão de cadastrar usuário for selecionado
         if(event.getSource() == addUser){
             //get reference to the button's stage
             stage = (Stage) addUser.getScene().getWindow();
             //load up OTHER FXML document
             root = FXMLLoader.load(getClass().getResource("addUserWindow.fxml"), Main.getResourceBundle());
+        }
+        else if (event.getSource() == addBook) {
+            stage = (Stage) addBook.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("addBookWindow.fxml"), Main.getResourceBundle());
         }
         else{
             stage=(Stage) addUser.getScene().getWindow();
