@@ -28,19 +28,19 @@ public class AddUserController extends MainWindowController {
         // Verifica se todos os campos já estão preenchidos
         if (firstNameField.getText().isEmpty() || lastNameField.getText().isEmpty() || emailField.getText().isEmpty()
                 || userIdField.getText().isEmpty())
-            showWarning("warning", null, "blankFieldWarning");
+            showWarning(Main.getResourceBundle().getString("warning"), null, Main.getResourceBundle().getString("blankFieldWarning"));
 
         // Verifica se o tipo de usuário foi escolhido
         else if (userType.getText().compareTo(Main.getResourceBundle().getString("group")) == 0)
-            showWarning("warning", null, "blankFieldWarning");
+            showWarning(Main.getResourceBundle().getString("warning"), null, Main.getResourceBundle().getString("blankFieldWarning"));
 
         // Verifica se o número passado como id é válido
         else if (! isValidNumber(userIdField))
-            showError("warning", "invalidEntry", "onlyNumber");
+            showWarning(Main.getResourceBundle().getString("warning"), null, Main.getResourceBundle().getString("onlyNumber"));
 
         // Verifica se o usuário já não foi cadastrado
-        else if (file.searchID(userIdField.getText()) != null)
-            showError("error", "invalidEntry", "userAlreadyRegistered");
+        else if (file.getUsersFile().exists() && file.searchID(userIdField.getText()) != null)
+            showError(Main.getResourceBundle().getString("error"), null, Main.getResourceBundle().getString("userAlreadyRegistered"));
 
         // Cria o novo usuário e adiciona ao arquivo
         else {
@@ -59,7 +59,7 @@ public class AddUserController extends MainWindowController {
             file.storeUser(user);
 
             // Exibe mensagem de exito
-            showInformation("success", null, "userRegistered");
+            showInformation(Main.getResourceBundle().getString("success"), null, Main.getResourceBundle().getString("userRegistered"));
 
             backToMain(okBtn);
         }
@@ -77,17 +77,6 @@ public class AddUserController extends MainWindowController {
             userType.setText(teacherMenu.getText());
         else
             userType.setText(communityMenu.getText());
-    }
-
-
-
-    // Verifica se o número digitado possui algum caractere não numérico
-    private boolean isValidNumber(TextField field) {
-        String word = field.getText();
-        for (int i = 0; i < word.length(); i++) {
-            if (! Character.isDigit(word.charAt(i))) return false;
-        }
-        return true;
     }
 
     // Ainda não decidi se vou usar isso

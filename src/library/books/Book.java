@@ -11,12 +11,12 @@ public class Book {
     private String publisher;
     private int year;
     private int edition;
-    private int bookNumber;
+    private long bookNumber;
     private boolean available;
     private Date borrowDate;
     private Date returnDate;
 
-    public Book(String title, String author, String publisher, int year, int edition, int bookNumber) {
+    public Book(String title, String author, String publisher, int year, int edition, long bookNumber) {
         this.title = title;
         this.author = author;
         this.publisher = publisher;
@@ -68,11 +68,11 @@ public class Book {
         return edition;
     }
 
-    public void setBookNumber(int bookNumber) {
+    public void setBookNumber(long bookNumber) {
         this.bookNumber = bookNumber;
     }
 
-    public int getBookNumber() {
+    public long getBookNumber() {
         return bookNumber;
     }
 

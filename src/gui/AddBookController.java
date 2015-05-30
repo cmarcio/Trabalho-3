@@ -17,6 +17,8 @@ public class AddBookController extends MainWindowController{
     @FXML private TextField yearField;
     @FXML private TextField editionField;
     @FXML private SplitMenuButton typeMenu;
+    @FXML private MenuItem textBookMenu;
+    @FXML private MenuItem otherBookMenu;
 
     @FXML public void handleOkButton(ActionEvent event) {
         // Cria um objeto de manipulação de dados
@@ -25,11 +27,15 @@ public class AddBookController extends MainWindowController{
         // Verifica se todos os campos já estão preenchidos
         if (titleField.getText().isEmpty() || authorField.getText().isEmpty() || publisherField.getText().isEmpty()
                 || yearField.getText().isEmpty() || editionField.getText().isEmpty())
-            showWarning("warning", null, "blankFieldWarning");
+            showWarning(Main.getResourceBundle().getString("warning"), null, Main.getResourceBundle().getString("blankFieldWarning"));
 
         // Verifica se o tipo de livro foi escolhido
         else if (typeMenu.getText().compareTo(Main.getResourceBundle().getString("group")) == 0)
-            showWarning("warning", null, "blankFieldWarning");
+            showWarning(Main.getResourceBundle().getString("warning"), null, Main.getResourceBundle().getString("blankFieldWarning"));
+
+        // Verifica se o número passado como id é válido
+        else if (! isValidNumber(yearField) || ! isValidNumber(editionField))
+            showWarning(Main.getResourceBundle().getString("warning"), null, Main.getResourceBundle().getString("onlyNumber"));
 
         // Cria o novo usuário e adiciona ao arquivo
         else {
@@ -46,13 +52,20 @@ public class AddBookController extends MainWindowController{
             file.storeBook(book);
 
             // Exibe mensagem de exito
-            showInformation("success", null, "bookRegistered");
+            showInformation(Main.getResourceBundle().getString("success"), null, Main.getResourceBundle().getString("bookRegistered"));
 
             // Exibe o ID do livro adicionado
-            showInformation("attention", "bookIdInformation", Integer.toString(book.getBookNumber()));
+            showInformation(Main.getResourceBundle().getString("attention"), Main.getResourceBundle().getString("bookIdInformation"), Long.toString(book.getBookNumber()));
 
             backToMain(okBtn);
         }
+    }
+
+    @FXML public void handleSplitMenu(ActionEvent event) {
+        if (event.getSource() == textBookMenu)
+            typeMenu.setText(textBookMenu.getText());
+        else
+            typeMenu.setText(otherBookMenu.getText());
     }
 
     // Volta ao menu principal quando o botão cancelar é digitado

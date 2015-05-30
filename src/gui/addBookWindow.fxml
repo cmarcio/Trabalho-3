@@ -21,18 +21,18 @@
         <TextField fx:id="editionField" prefWidth="200.0" promptText="%edition" GridPane.columnIndex="0" GridPane.rowIndex="5" />
         <SplitMenuButton id="userType" fx:id="typeMenu" mnemonicParsing="false" prefWidth="260.0" text="%group" GridPane.columnIndex="0" GridPane.rowIndex="6">
           <items>
-            <MenuItem mnemonicParsing="false" text="%textBook" />
-            <MenuItem mnemonicParsing="false" text="%otherBook" />
+            <MenuItem mnemonicParsing="false" onAction="#handleSplitMenu" text="%textBook" fx:id="textBookMenu" />
+            <MenuItem mnemonicParsing="false" onAction="#handleSplitMenu" text="%otherBook" fx:id="otherBookMenu" />
           </items>
         </SplitMenuButton>
         <GridPane GridPane.columnIndex="0" GridPane.rowIndex="7">
           <children>
-            <Button fx:id="okBtn" contentDisplay="LEFT" defaultButton="true" mnemonicParsing="false" text="%ok" textAlignment="LEFT" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+            <Button fx:id="okBtn" contentDisplay="LEFT" defaultButton="true" mnemonicParsing="false" onAction="#handleOkButton" text="%ok" textAlignment="LEFT" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
               <GridPane.margin>
                 <Insets left="2.0" />
               </GridPane.margin>
             </Button>
-            <Button fx:id="cancelBtn" cancelButton="true" mnemonicParsing="false" text="%cancel" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+            <Button fx:id="cancelBtn" cancelButton="true" mnemonicParsing="false" onAction="#handleCancelButton" text="%cancel" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
               <GridPane.margin>
                 <Insets right="2.0" />
               </GridPane.margin>

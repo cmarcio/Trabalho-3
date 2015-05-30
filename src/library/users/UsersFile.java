@@ -1,7 +1,6 @@
 package library.users;
 
 import java.io.*;
-import java.util.Date;
 
 /**
  * Created by Marcio on 26/05/2015.
@@ -31,21 +30,15 @@ public class UsersFile {
             String email = user.getEmail();
             String userId = Long.toString(user.getUserId());
             String type = user.getGroup();
-            String date = null;
-            String status;
-            if (user.isBlocked()) {
-                status = "BLOCKED";
-                date = user.getUnblockDate().toString();
-            }
-            else status = "UNBLOCKED";
 
             // Escreve os dados do usuário no arquivo
-            output.printf("%s,%s,%s,%s,%s,%s,%s\n", firstName, lastName, email, userId, type, status, date);
+            output.printf("%s,%s,%s,%s,%s\n", firstName, lastName, email, userId, type);
 
             output.close();
             fileWriter.close();
 
         } catch (IOException e) {
+            System.err.println("ERROR SAVING USER IN FILE!");
             e.printStackTrace();
         }
     }
@@ -64,7 +57,6 @@ public class UsersFile {
                 String[] fields = line.split(",");
                 // Verifica se o campo user ID está nesse registro
                 if (fields[3].equals(ID)) {
-                    System.out.println("AQUI\n");
                     // Cria um novo objeto de acordo com o registro lido
                     userFound = createUserByReg(fields);
 
@@ -74,8 +66,8 @@ public class UsersFile {
                 }
             }
         } catch (IOException e) {
+            System.err.println("ERROR WHILE LOOKING FOR ID IN USER FILE!");
             e.printStackTrace();
-            return null;
         }
         return userFound;
     }
@@ -86,26 +78,23 @@ public class UsersFile {
         String lastName = fields[1];
         String email = fields[2];
         long userId = Long.parseLong(fields[3]);
-        boolean blocked = fields[5].equals("BLOCKED");
-        Date date;
-        if (blocked)
-            date = new Date(fields[6]);
-        else date = null;
 
         User newUser = null;
-
         switch(fields[4]) {
             case "TEACHER":
-                newUser = new Teacher(firstName, lastName, email, userId, blocked, date);
+                newUser = new Teacher(firstName, lastName, email, userId);
                 break;
             case "STUDENT":
-                newUser = new Student(firstName, lastName, email, userId, blocked, date);
+                newUser = new Student(firstName, lastName, email, userId);
                 break;
             case "COMMUNITY MEMBER":
-                newUser = new CommunityMember(firstName, lastName, email, userId, blocked, date);
+                newUser = new CommunityMember(firstName, lastName, email, userId);
                 break;
         }
-
         return newUser;
     }
- }
+
+    public File getUsersFile() {
+        return usersFile;
+    }
+}

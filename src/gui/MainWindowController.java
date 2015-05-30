@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -41,30 +42,30 @@ public class MainWindowController {
         stage.show();
     }
 
-    // Exibe um warning contendo as strings internacionalizadas passadas como parâmetro
+    // Exibe um warning contendo as strings passadas como parâmetro
     public void showWarning(String title, String header, String message) {
         Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle(Main.getResourceBundle().getString(title));
-        alert.setHeaderText(Main.getResourceBundle().getString(header));
-        alert.setContentText(Main.getResourceBundle().getString(message));
+        alert.setTitle(title);
+        alert.setHeaderText(header);
+        alert.setContentText(message);
         alert.showAndWait();
     }
 
-    // Exibe um mensagem de erro contendo as strings internacionalizadas passadas como parâmetro
+    // Exibe um mensagem de erro contendo as strings passadas como parâmetro
     public void showError(String title, String header, String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle(Main.getResourceBundle().getString(title));
-        alert.setHeaderText(Main.getResourceBundle().getString(header));
-        alert.setContentText(Main.getResourceBundle().getString(message));
+        alert.setTitle(title);
+        alert.setHeaderText(header);
+        alert.setContentText(message);
         alert.showAndWait();
     }
 
-    // Exibe um mensagem informativa contendo as strings internacionalizadas passadas como parâmetro
+    // Exibe um mensagem informativa contendo as strings passadas como parâmetro
     public void showInformation(String title, String header, String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(Main.getResourceBundle().getString(title));
-        alert.setHeaderText(Main.getResourceBundle().getString(header));
-        alert.setContentText(Main.getResourceBundle().getString(message));
+        alert.setTitle(title);
+        alert.setHeaderText(header);
+        alert.setContentText(message);
         alert.showAndWait();
     }
 
@@ -78,8 +79,17 @@ public class MainWindowController {
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
-            System.err.println("Erro ao carregar janela");
+            System.err.println("ERROR LOADING WINDOW!");
             e.printStackTrace();
         }
+    }
+
+    // Verifica se o número digitado possui algum caractere não numérico
+    public boolean isValidNumber(TextField field) {
+        String word = field.getText();
+        for (int i = 0; i < word.length(); i++) {
+            if (! Character.isDigit(word.charAt(i))) return false;
+        }
+        return true;
     }
 }
