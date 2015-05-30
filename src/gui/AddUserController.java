@@ -2,19 +2,13 @@ package gui;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
 import library.users.*;
-
-import java.io.IOException;
 
 /**
  * Created by Marcio on 24/05/2015.
  */
-public class AddUserController {
+public class AddUserController extends MainWindowController {
     @FXML private SplitMenuButton userType;
     @FXML private Button okBtn;
     @FXML private Button cancelBtn;
@@ -27,55 +21,33 @@ public class AddUserController {
     @FXML private MenuItem communityMenu;
 
 
-    @FXML public void handleOkButtonAction(ActionEvent event) throws IOException {
+    @FXML public void handleOkButtonAction(ActionEvent event) {
         // Cria um objeto de manipulação de dados
         UsersFile file = new UsersFile("UsersReg.txt");
 
         // Verifica se todos os campos já estão preenchidos
-        if (firstNameField.getText().isEmpty() || lastNameField.getText().isEmpty() || emailField.getText().isEmpty() || userIdField.getText().isEmpty()) {
-            // Exibe uma mensagem de erro indicando que os campos não foram preenchidos
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle(Main.getResourceBundle().getString("warning"));
-            alert.setHeaderText(null);
-            alert.setContentText(Main.getResourceBundle().getString("blankFieldWarning"));
-            alert.showAndWait();
-        }
+        if (firstNameField.getText().isEmpty() || lastNameField.getText().isEmpty() || emailField.getText().isEmpty()
+                || userIdField.getText().isEmpty())
+            showWarning("warning", null, "blankFieldWarning");
 
         // Verifica se o tipo de usuário foi escolhido
-        else if (userType.getText().compareTo(Main.getResourceBundle().getString("group")) == 0) {
-            // Exibe uma mensagem de erro indicando que os campos não foram preenchidos
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle(Main.getResourceBundle().getString("warning"));
-            alert.setHeaderText(null);
-            alert.setContentText(Main.getResourceBundle().getString("blankFieldWarning"));
-            alert.showAndWait();
-        }
+        else if (userType.getText().compareTo(Main.getResourceBundle().getString("group")) == 0)
+            showWarning("warning", null, "blankFieldWarning");
 
         // Verifica se o número passado como id é válido
-        else if (! isValidNumber(userIdField)) {
-            // Exibe mensagem de erro
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle(Main.getResourceBundle().getString("warning"));
-            alert.setHeaderText(Main.getResourceBundle().getString("invalidEntry"));
-            alert.setContentText(Main.getResourceBundle().getString("onlyNumber"));
-            alert.showAndWait();
-        }
+        else if (! isValidNumber(userIdField))
+            showError("warning", "invalidEntry", "onlyNumber");
 
         // Verifica se o usuário já não foi cadastrado
-        else if (file.searchID(userIdField.getText()) != null) {
-            // Exibe mensagem de erro
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle(Main.getResourceBundle().getString("error"));
-            alert.setHeaderText(Main.getResourceBundle().getString("invalidEntry"));
-            alert.setContentText(Main.getResourceBundle().getString("userAlreadyRegistered"));
-            alert.showAndWait();
-        }
+        else if (file.searchID(userIdField.getText()) != null)
+            showError("error", "invalidEntry", "userAlreadyRegistered");
 
         // Cria o novo usuário e adiciona ao arquivo
         else {
             String type = userType.getText();
-            User user;
+
             // Cria um objeto do tipo usuário
+            User user;
             if (type.compareTo(Main.getResourceBundle().getString("student")) == 0)
                 user = new Student(firstNameField.getText(), lastNameField.getText(), emailField.getText(), Long.parseLong(userIdField.getText()));
             else if (type.compareTo(Main.getResourceBundle().getString("teacher")) == 0)
@@ -87,29 +59,15 @@ public class AddUserController {
             file.storeUser(user);
 
             // Exibe mensagem de exito
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle(Main.getResourceBundle().getString("success"));
-            alert.setHeaderText(null);
-            alert.setContentText(Main.getResourceBundle().getString("userRegistered"));
-            alert.showAndWait();
+            showInformation("success", null, "userRegistered");
 
-            // Volta ao menu inicial
-            Stage stage=(Stage) okBtn.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("mainWindow.fxml"), Main.getResourceBundle());
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
+            backToMain(okBtn);
         }
     }
 
     // Se o botão cancelar for pressionado, volta ao menu principal
-    @FXML public void handleCancelButtonAction(ActionEvent event) throws IOException {
-        Stage stage=(Stage) cancelBtn.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("mainWindow.fxml"), Main.getResourceBundle());
-
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    @FXML public void handleCancelButtonAction(ActionEvent event) {
+        backToMain(cancelBtn);
     }
 
     @FXML public void handleSplitMenu(ActionEvent event) {
@@ -120,6 +78,8 @@ public class AddUserController {
         else
             userType.setText(communityMenu.getText());
     }
+
+
 
     // Verifica se o número digitado possui algum caractere não numérico
     private boolean isValidNumber(TextField field) {

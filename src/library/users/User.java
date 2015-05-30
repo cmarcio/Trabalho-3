@@ -22,15 +22,6 @@ public abstract class User {
         this.unblockDate = null;
     }
 
-    public User(String firstName, String lastName, String email, long userId, boolean status, Date date) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.userId = userId;
-        this.blocked = status;
-        this.unblockDate = date;
-    }
-
     public abstract String getGroup();
 
     public void setFirstName(String firstName) {

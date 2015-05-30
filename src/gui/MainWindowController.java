@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
@@ -38,5 +39,47 @@ public class MainWindowController {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    // Exibe um warning contendo as strings internacionalizadas passadas como parâmetro
+    public void showWarning(String title, String header, String message) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle(Main.getResourceBundle().getString(title));
+        alert.setHeaderText(Main.getResourceBundle().getString(header));
+        alert.setContentText(Main.getResourceBundle().getString(message));
+        alert.showAndWait();
+    }
+
+    // Exibe um mensagem de erro contendo as strings internacionalizadas passadas como parâmetro
+    public void showError(String title, String header, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(Main.getResourceBundle().getString(title));
+        alert.setHeaderText(Main.getResourceBundle().getString(header));
+        alert.setContentText(Main.getResourceBundle().getString(message));
+        alert.showAndWait();
+    }
+
+    // Exibe um mensagem informativa contendo as strings internacionalizadas passadas como parâmetro
+    public void showInformation(String title, String header, String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(Main.getResourceBundle().getString(title));
+        alert.setHeaderText(Main.getResourceBundle().getString(header));
+        alert.setContentText(Main.getResourceBundle().getString(message));
+        alert.showAndWait();
+    }
+
+    // Volta ao menu principal
+    public  void backToMain(Button btn) {
+        Stage stage=(Stage) btn.getScene().getWindow();
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(getClass().getResource("mainWindow.fxml"), Main.getResourceBundle());
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            System.err.println("Erro ao carregar janela");
+            e.printStackTrace();
+        }
     }
 }

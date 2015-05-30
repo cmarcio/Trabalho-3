@@ -10,11 +10,6 @@ public class Student extends UniversityMember {
         super(firstName, lastName, email, userId);
     }
 
-    public Student(String firstName, String lastName, String email, long userId, boolean blocked, Date date) {
-        super(firstName, lastName, email, userId, blocked, date);
-    }
-
-
     @Override
     public String getGroup() {
         return "STUDENT";

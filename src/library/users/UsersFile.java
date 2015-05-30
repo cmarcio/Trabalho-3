@@ -16,7 +16,6 @@ public class UsersFile {
             folder.mkdir(); // Cria o diretório caso não tenha sido criado
 
         // Cria o arquivo dentro do diretório de dados
-        // Salva o ponteiro para o arquivo no objeto
         usersFile = new File(folder, fileName);
     }
 

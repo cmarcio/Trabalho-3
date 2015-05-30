@@ -9,9 +9,4 @@ public abstract class UniversityMember extends User {
     public UniversityMember(String firstName, String lastName, String email, long userId) {
         super(firstName, lastName, email, userId);
     }
-
-    public UniversityMember(String firstName, String lastName, String email, long userId, boolean blocked, Date date) {
-        super(firstName, lastName, email, userId, blocked, date);
-    }
-
 }

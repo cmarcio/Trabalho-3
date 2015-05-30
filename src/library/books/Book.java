@@ -13,6 +13,7 @@ public class Book {
     private int edition;
     private int bookNumber;
     private boolean available;
+    private Date borrowDate;
     private Date returnDate;
 
     public Book(String title, String author, String publisher, int year, int edition, int bookNumber) {
@@ -23,6 +24,7 @@ public class Book {
         this.edition = edition;
         this.bookNumber = bookNumber;
         this.available = true;
+        this.borrowDate = null;
         this.returnDate = null;
     }
 
@@ -88,5 +90,13 @@ public class Book {
 
     public Date getReturnDate() {
         return returnDate;
+    }
+
+    public void setBorrowDate(Date borrowDate) {
+        this.borrowDate = borrowDate;
+    }
+
+    public Date getBorrowDate() {
+        return borrowDate;
     }
 }

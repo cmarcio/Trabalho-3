@@ -14,12 +14,12 @@
   <children>
     <GridPane layoutX="120.0" layoutY="30.0" prefWidth="260.0">
       <children>
-        <TextField prefWidth="200.0" promptText="%title" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-        <TextField prefWidth="200.0" promptText="%author" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-        <TextField prefWidth="200.0" promptText="%publisher" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-        <TextField prefWidth="200.0" promptText="%year" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-        <TextField prefWidth="200.0" promptText="%edition" GridPane.columnIndex="0" GridPane.rowIndex="5" />
-        <SplitMenuButton id="userType" mnemonicParsing="false" prefWidth="260.0" text="%group" GridPane.columnIndex="0" GridPane.rowIndex="6">
+        <TextField id="authorField" fx:id="titleField" prefWidth="200.0" promptText="%title" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField fx:id="authorField" prefWidth="200.0" promptText="%author" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <TextField fx:id="publisherField" prefWidth="200.0" promptText="%publisher" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <TextField fx:id="yearField" prefWidth="200.0" promptText="%year" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+        <TextField fx:id="editionField" prefWidth="200.0" promptText="%edition" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+        <SplitMenuButton id="userType" fx:id="typeMenu" mnemonicParsing="false" prefWidth="260.0" text="%group" GridPane.columnIndex="0" GridPane.rowIndex="6">
           <items>
             <MenuItem mnemonicParsing="false" text="%textBook" />
             <MenuItem mnemonicParsing="false" text="%otherBook" />
@@ -27,12 +27,12 @@
         </SplitMenuButton>
         <GridPane GridPane.columnIndex="0" GridPane.rowIndex="7">
           <children>
-            <Button id="okBtn" contentDisplay="LEFT" defaultButton="true" mnemonicParsing="false" text="%ok" textAlignment="LEFT" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+            <Button fx:id="okBtn" contentDisplay="LEFT" defaultButton="true" mnemonicParsing="false" text="%ok" textAlignment="LEFT" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
               <GridPane.margin>
                 <Insets left="2.0" />
               </GridPane.margin>
             </Button>
-            <Button id="cancelBtn" cancelButton="true" mnemonicParsing="false" text="%cancel" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+            <Button fx:id="cancelBtn" cancelButton="true" mnemonicParsing="false" text="%cancel" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
               <GridPane.margin>
                 <Insets right="2.0" />
               </GridPane.margin>
