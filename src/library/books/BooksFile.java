@@ -1,7 +1,5 @@
 package library.books;
 
-import library.users.User;
-
 import java.io.*;
 
 /**

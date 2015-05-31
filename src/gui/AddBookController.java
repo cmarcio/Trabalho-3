@@ -55,7 +55,8 @@ public class AddBookController extends MainWindowController{
             showInformation(Main.getResourceBundle().getString("success"), null, Main.getResourceBundle().getString("bookRegistered"));
 
             // Exibe o ID do livro adicionado
-            showInformation(Main.getResourceBundle().getString("attention"), Main.getResourceBundle().getString("bookIdInformation"), Long.toString(book.getBookNumber()));
+            showInformation(Main.getResourceBundle().getString("attention"),
+                    Main.getResourceBundle().getString("bookId").concat(Long.toString(book.getBookNumber())), Main.getResourceBundle().getString("bookIdInformation"));
 
             backToMain(okBtn);
         }
