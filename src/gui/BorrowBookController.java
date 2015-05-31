@@ -33,11 +33,11 @@ public class BorrowBookController extends MainWindowController {
             showWarning(Main.getResourceBundle().getString("warning"), null, Main.getResourceBundle().getString("onlyNumbersId"));
 
         // Verifica se o usuário está cadastrado
-        else if (userFile.getUsersFile().exists() && (user = userFile.searchID(userId.getText())) != null)
+        else if (userFile.getUsersFile().exists() && (user = userFile.searchID(userId.getText())) == null)
             showError(Main.getResourceBundle().getString("error"), null, Main.getResourceBundle().getString("userIdAbsent"));
 
         // Verifica se o livro está cadastrado
-        else if (bookFile.getBooksFile().exists() && (book = bookFile.searchID(bookId.getText())) != null)
+        else if (bookFile.getBooksFile().exists() && (book = bookFile.searchID(bookId.getText())) == null)
             showError(Main.getResourceBundle().getString("error"), null, Main.getResourceBundle().getString("bookIdAbsent"));
 
         // Cria o novo usuário e adiciona ao arquivo

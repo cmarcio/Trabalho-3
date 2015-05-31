@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gui/BorrowBookController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gui/borrowBookWindow.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/library/books/Book.java" afterPath="$PROJECT_DIR$/src/library/books/Book.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/library/books/BooksFile.java" afterPath="$PROJECT_DIR$/src/library/books/BooksFile.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/library/books/GeneralBook.java" afterPath="$PROJECT_DIR$/src/library/books/GeneralBook.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/MainWindowController.java" afterPath="$PROJECT_DIR$/src/gui/MainWindowController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MessagesBundle_en_US.properties" afterPath="$PROJECT_DIR$/src/MessagesBundle_en_US.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MessagesBundle_pt_BR.properties" afterPath="$PROJECT_DIR$/src/MessagesBundle_pt_BR.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/library/books/TextBook.java" afterPath="$PROJECT_DIR$/src/library/books/TextBook.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/BorrowBookController.java" afterPath="$PROJECT_DIR$/src/gui/BorrowBookController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -72,26 +64,48 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Teacher.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/library/users/Teacher.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BorrowBookController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BorrowBookController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/BorrowBookController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.8146342">
-              <caret line="62" column="32" selection-start-line="62" selection-start-column="32" selection-end-line="62" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="39" column="99" selection-start-line="39" selection-start-column="99" selection-end-line="39" selection-end-column="99" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#3046#3047#0" expanded="true" />
                 <element signature="e#3083#3084#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="32" column="9" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UsersReg.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/UsersReg.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BooksReg.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/BooksReg.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -108,29 +122,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BooksFile.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BooksFile.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/library/books/BooksFile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="1.8768">
               <caret line="93" column="27" selection-start-line="93" selection-start-column="27" selection-end-line="93" selection-end-column="27" />
               <folding>
                 <element signature="e#3656#3657#0" expanded="true" />
                 <element signature="e#3688#3689#0" expanded="true" />
               </folding>
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="addBookWindow.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/addBookWindow.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="10.551724">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
           </provider>
         </entry>
       </file>
@@ -181,16 +182,6 @@
                 <element signature="e#1518#1519#0" expanded="true" />
                 <element signature="e#1562#1563#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/library/users/User.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="21" column="32" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -253,8 +244,8 @@
         <option value="$PROJECT_DIR$/src/library/books/TextBook.java" />
         <option value="$PROJECT_DIR$/src/library/books/GeneralBook.java" />
         <option value="$PROJECT_DIR$/src/library/books/BooksFile.java" />
-        <option value="$PROJECT_DIR$/src/gui/BorrowBookController.java" />
         <option value="$PROJECT_DIR$/src/gui/MainWindowController.java" />
+        <option value="$PROJECT_DIR$/src/gui/BorrowBookController.java" />
       </list>
     </option>
   </component>
@@ -404,6 +395,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Trabalho-3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Trabalho-3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -757,7 +762,7 @@
       <workItem from="1432770878655" duration="13404000" />
       <workItem from="1433010682717" duration="10730000" />
       <workItem from="1433030990620" duration="1439000" />
-      <workItem from="1433102814890" duration="7640000" />
+      <workItem from="1433102814890" duration="8225000" />
     </task>
     <task id="LOCAL-00001" summary="Classe criadas">
       <created>1432488352283</created>
@@ -837,11 +842,17 @@
       <option name="project" value="LOCAL" />
       <updated>1433031818409</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Emprestimo quase pronto">
+      <created>1433112709402</created>
+      <option name="number" value="00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1433112709402</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107110000" />
+    <option name="totallyTimeSpent" value="107695000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -864,7 +875,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924962" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32924962" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924962" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23174603" sideWeight="0.6703755" order="1" side_tool="false" content_ui="combo" />
@@ -912,7 +923,8 @@
     <MESSAGE value="Cadastro de livros quase pronto" />
     <MESSAGE value="Cadastro de livros pronto" />
     <MESSAGE value="Modificação no aviso de livro cadastrado" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modificação no aviso de livro cadastrado" />
+    <MESSAGE value="Emprestimo quase pronto" />
+    <option name="LAST_COMMIT_MESSAGE" value="Emprestimo quase pronto" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1200,16 +1212,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="9" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/library/users/CommunityMember.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1347,17 +1349,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/library/books/GeneralBook.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="97" selection-start-line="6" selection-start-column="97" selection-end-line="6" selection-end-column="97" />
-          <folding>
-            <element signature="e#341#342#0" expanded="true" />
-            <element signature="e#378#379#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/library/books/Book.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1365,17 +1356,6 @@
           <folding>
             <element signature="e#1518#1519#0" expanded="true" />
             <element signature="e#1562#1563#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/library/books/BooksFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="93" column="27" selection-start-line="93" selection-start-column="27" selection-end-line="93" selection-end-column="27" />
-          <folding>
-            <element signature="e#3656#3657#0" expanded="true" />
-            <element signature="e#3688#3689#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1390,14 +1370,62 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data/UsersReg.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/BooksReg.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/BorrowBookController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.8146342">
-          <caret line="62" column="32" selection-start-line="62" selection-start-column="32" selection-end-line="62" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="39" column="99" selection-start-line="39" selection-start-column="99" selection-end-line="39" selection-end-column="99" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#3046#3047#0" expanded="true" />
             <element signature="e#3083#3084#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="32" column="9" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/library/books/GeneralBook.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="97" selection-start-line="6" selection-start-column="97" selection-end-line="6" selection-end-column="97" />
+          <folding>
+            <element signature="e#341#342#0" expanded="true" />
+            <element signature="e#378#379#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/library/books/BooksFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.8768">
+          <caret line="93" column="27" selection-start-line="93" selection-start-column="27" selection-end-line="93" selection-end-column="27" />
+          <folding>
+            <element signature="e#3656#3657#0" expanded="true" />
+            <element signature="e#3688#3689#0" expanded="true" />
           </folding>
         </state>
       </provider>
