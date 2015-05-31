@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * Created by Marcio on 24/05/2015.
  */
-public class Book {
+public abstract class Book {
     private String title;
     private String author;
     private String publisher;
@@ -99,4 +99,6 @@ public class Book {
     public Date getBorrowDate() {
         return borrowDate;
     }
+
+    public abstract String getBookType();
 }

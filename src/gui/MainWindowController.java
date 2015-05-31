@@ -32,6 +32,10 @@ public class MainWindowController {
             stage = (Stage) addBook.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("addBookWindow.fxml"), Main.getResourceBundle());
         }
+        else if (event.getSource() == borrowBook) {
+            stage = (Stage) addBook.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("borrowBookWindow.fxml"), Main.getResourceBundle());
+        }
         else{
             stage=(Stage) addUser.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("mainWindow.fxml"), Main.getResourceBundle());
