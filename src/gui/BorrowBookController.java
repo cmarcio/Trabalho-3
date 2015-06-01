@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import library.ReturnFile;
 import library.books.Book;
 import library.books.BooksFile;
 import library.BorrowFile;
@@ -23,6 +24,8 @@ public class BorrowBookController extends MainWindowController {
         UsersFile userFile = new UsersFile("UsersReg.txt");
         BooksFile bookFile = new BooksFile("BooksReg.txt");
         BorrowFile borrowFile = new BorrowFile("BorrowReg.txt");
+        ReturnFile returnFile = new ReturnFile("ReturnReg.txt");
+
         Book book = null;
         User user = null;
 
@@ -43,12 +46,14 @@ public class BorrowBookController extends MainWindowController {
             showError(Main.getResourceBundle().getString("error"), null, Main.getResourceBundle().getString("bookIdAbsent"));
 
         // Verifica se o livro está indisponível
-        else if (! book.isAvailable()) {
+        else if (book != null && ! book.isAvailable(borrowFile, returnFile)) {
             showError(Main.getResourceBundle().getString("error"), null, Main.getResourceBundle().getString("bookUnavailable"));
         }
 
         // Verifica se o usuário pode pegar livros
-
+        else if (user != null && user.isBlocked()) {
+            showError(Main.getResourceBundle().getString("error"), null, Main.getResourceBundle().getString("userBlocked"));
+        }
 
         // Atualiza o arquivo de empréstimos
         else {

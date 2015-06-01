@@ -1,5 +1,11 @@
 package library.books;
 
+import library.BorrowFile;
+import library.Register;
+import library.ReturnFile;
+
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 
 /**
@@ -82,6 +88,29 @@ public abstract class Book {
 
     public boolean isAvailable() {
         return available;
+    }
+
+    public boolean isAvailable(BorrowFile borrowFile, ReturnFile returnFile) {
+        this.setAvailable(true);
+        // Cria as listas de empréstimos e devoluções
+        ArrayList<Register> borrows = borrowFile.toRegisters();
+        ArrayList<Register> returns = returnFile.toRegisters();
+        // Verifica se algum livro já foi emprestado
+        if (borrows.isEmpty())
+            return true;
+        // Ordena as listas
+        Collections.sort(borrows);
+        Collections.sort(returns);
+        // Verfica a disponibilidade do livro
+        for (int i = 0; i < borrows.size(); i++) {
+            if (borrows.get(i).getBookId() == bookNumber) {
+                this.setAvailable(false);
+                for (int j = 0; j < returns.size(); j++)
+                    if (returns.get(j).getBookId() == bookNumber && returns.get(j).getCalendar().compareTo(borrows.get(i).getCalendar()) >= 0)
+                        this.setAvailable(true);
+            }
+        }
+        return isAvailable();
     }
 
     public void setReturnDate(Date returnDate) {
