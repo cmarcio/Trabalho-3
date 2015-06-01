@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -17,6 +18,14 @@ public class MainWindowController {
     @FXML private Button addBook;
     @FXML private Button borrowBook;
     @FXML private Button returnBook;
+    @FXML private Button setDate;
+    @FXML private DatePicker datePicker;
+    //public Calendar programDate;
+
+    public MainWindowController () {
+        //programDate = new Calendar() {
+        //};
+    }
 
     @FXML void handleButtonAction(ActionEvent event) throws IOException {
         Stage stage;
@@ -36,6 +45,10 @@ public class MainWindowController {
             stage = (Stage) addBook.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("borrowBookWindow.fxml"), Main.getResourceBundle());
         }
+        else if (event.getSource() == setDate) {
+            stage = (Stage) addBook.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("setDateWindow.fxml"), Main.getResourceBundle());
+        }
         else{
             stage=(Stage) addUser.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("mainWindow.fxml"), Main.getResourceBundle());
@@ -44,6 +57,10 @@ public class MainWindowController {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    @FXML public void handleDatePicker(ActionEvent event) {
+        System.out.println(datePicker.getEditor().getText());
     }
 
     // Exibe um warning contendo as strings passadas como parâmetro
