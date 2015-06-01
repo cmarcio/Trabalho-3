@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import library.books.Book;
 import library.books.BooksFile;
-import library.books.BorrowFile;
+import library.BorrowFile;
 import library.users.*;
 
 /**
@@ -42,7 +42,10 @@ public class BorrowBookController extends MainWindowController {
         else if (bookFile.getBooksFile().exists() && (book = bookFile.searchID(bookId.getText())) == null)
             showError(Main.getResourceBundle().getString("error"), null, Main.getResourceBundle().getString("bookIdAbsent"));
 
-        // Verifica se o livro está disponível
+        // Verifica se o livro está indisponível
+        else if (! book.isAvailable()) {
+            showError(Main.getResourceBundle().getString("error"), null, Main.getResourceBundle().getString("bookUnavailable"));
+        }
 
         // Verifica se o usuário pode pegar livros
 

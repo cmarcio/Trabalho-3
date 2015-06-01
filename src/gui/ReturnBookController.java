@@ -6,8 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import library.books.Book;
 import library.books.BooksFile;
-import library.books.BorrowFile;
-import library.books.ReturnFile;
+import library.ReturnFile;
 import library.users.User;
 import library.users.UsersFile;
 
@@ -15,8 +14,7 @@ import library.users.UsersFile;
  * Created by Marcio on 01/06/2015.
  */
 public class ReturnBookController extends MainWindowController{
-    @FXML
-    private Button okBtn;
+    @FXML private Button okBtn;
     @FXML private Button cancelBtn;
     @FXML private TextField bookId;
     @FXML private TextField userId;
@@ -26,6 +24,7 @@ public class ReturnBookController extends MainWindowController{
         UsersFile userFile = new UsersFile("UsersReg.txt");
         BooksFile bookFile = new BooksFile("BooksReg.txt");
         ReturnFile returnFile = new ReturnFile("ReturnReg.txt");
+
         Book book = null;
         User user = null;
 
@@ -45,9 +44,7 @@ public class ReturnBookController extends MainWindowController{
         else if (bookFile.getBooksFile().exists() && (book = bookFile.searchID(bookId.getText())) == null)
             showError(Main.getResourceBundle().getString("error"), null, Main.getResourceBundle().getString("bookIdAbsent"));
 
-            // Verifica se o livro está indisponível
-
-            // Verifica se o usuário está bloqueado
+        // Verifica se o usuário está com o livro
 
 
         // Atualiza o arquivo de devoluções

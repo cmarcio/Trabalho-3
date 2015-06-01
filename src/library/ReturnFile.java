@@ -1,5 +1,6 @@
-package library.books;
+package library;
 
+import library.books.Book;
 import library.users.User;
 
 import java.io.File;
