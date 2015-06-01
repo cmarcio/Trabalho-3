@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import library.books.Book;
 import library.books.BooksFile;
+import library.books.BorrowFile;
 import library.users.*;
 
 /**
@@ -21,6 +22,7 @@ public class BorrowBookController extends MainWindowController {
         // Cria um objeto de manipulação de dados
         UsersFile userFile = new UsersFile("UsersReg.txt");
         BooksFile bookFile = new BooksFile("BooksReg.txt");
+        BorrowFile borrowFile = new BorrowFile("BorrowReg.txt");
         Book book = null;
         User user = null;
 
@@ -40,27 +42,20 @@ public class BorrowBookController extends MainWindowController {
         else if (bookFile.getBooksFile().exists() && (book = bookFile.searchID(bookId.getText())) == null)
             showError(Main.getResourceBundle().getString("error"), null, Main.getResourceBundle().getString("bookIdAbsent"));
 
+        // Verifica se o livro está disponível
+
+        // Verifica se o usuário pode pegar livros
+
+
         // Cria o novo usuário e adiciona ao arquivo
         else {
-            /*
-            String type = userType.getText();
-
-            // Cria um objeto do tipo usuário
-            User user;
-            if (type.compareTo(Main.getResourceBundle().getString("student")) == 0)
-                user = new Student(firstNameField.getText(), lastNameField.getText(), emailField.getText(), Long.parseLong(userIdField.getText()));
-            else if (type.compareTo(Main.getResourceBundle().getString("teacher")) == 0)
-                user = new Teacher(firstNameField.getText(), lastNameField.getText(), emailField.getText(), Long.parseLong(userIdField.getText()));
-            else
-                user = new CommunityMember(firstNameField.getText(), lastNameField.getText(), emailField.getText(), Long.parseLong(userIdField.getText()));
-
-            // Salva o usuário
-            file.storeUser(user);
+            // Registra o empréstimo
+            borrowFile.storeBook(book, user, getProgramDate());
 
             // Exibe mensagem de exito
-            showInformation(Main.getResourceBundle().getString("success"), null, Main.getResourceBundle().getString("userRegistered"));
+            showInformation(Main.getResourceBundle().getString("success"), null, Main.getResourceBundle().getString("bookBorrowed"));
 
-            backToMain(okBtn);*/
+            backToMain(okBtn);
         }
     }
 

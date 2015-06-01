@@ -12,8 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Calendar;
-import java.util.Locale;
+import java.util.GregorianCalendar;
 
 public class MainWindowController {
     @FXML private Button addUser;
@@ -22,43 +21,30 @@ public class MainWindowController {
     @FXML private Button returnBook;
     @FXML private Button okBtn;
     @FXML private DatePicker datePicker;
-    public Calendar programDate;
+    public static GregorianCalendar programDate;
 
-    public MainWindowController () {
-        programDate = Calendar.getInstance();
-    }
+    //public MainWindowController () {
+     //   programDate = new GregorianCalendar();
+    //}
 
     @FXML void handleButtonAction(ActionEvent event) throws IOException {
-        Stage stage;
-        Parent root;
         // Se o botão de cadastrar usuário for selecionado
-        if(event.getSource() == addUser){
-            //get reference to the button's stage
-            stage = (Stage) addUser.getScene().getWindow();
-            //load up OTHER FXML document
-            root = FXMLLoader.load(getClass().getResource("addUserWindow.fxml"), Main.getResourceBundle());
-        }
-        else if (event.getSource() == addBook) {
-            stage = (Stage) addBook.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("addBookWindow.fxml"), Main.getResourceBundle());
-        }
-        else if (event.getSource() == borrowBook) {
-            stage = (Stage) addBook.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("borrowBookWindow.fxml"), Main.getResourceBundle());
-        }
-        else{
-            stage=(Stage) addUser.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("mainWindow.fxml"), Main.getResourceBundle());
-        }
-        //create a new scene with root and set the stage
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        if(event.getSource() == addUser)
+            loadWindow(addUser, "addUserWindow.fxml");
+
+        else if (event.getSource() == addBook)
+            loadWindow(addBook, "addBookWindow.fxml");
+
+        else if (event.getSource() == borrowBook)
+            loadWindow(borrowBook, "borrowBookWindow.fxml");
+
+        else
+            loadWindow(borrowBook, "mainWindow.fxml");
     }
 
     @FXML public void handleDatePicker(ActionEvent event) {
         String[] date = datePicker.getEditor().getText().split("/");
-        programDate.set(Integer.parseInt(date[2]), Integer.parseInt(date[1]), Integer.parseInt(date[0]));
+        programDate = new GregorianCalendar(Integer.parseInt(date[2]), Integer.parseInt(date[1]) - 1, Integer.parseInt(date[0]));
         showInformation(Main.getResourceBundle().getString("dateChanged"), null, datePicker.getEditor().getText());
     }
 
@@ -109,11 +95,26 @@ public class MainWindowController {
     }
 
     // Volta ao menu principal
-    public  void backToMain(Button btn) {
+    public void backToMain(Button btn) {
         Stage stage=(Stage) btn.getScene().getWindow();
         Parent root = null;
         try {
             root = FXMLLoader.load(getClass().getResource("mainWindow.fxml"), Main.getResourceBundle());
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            System.err.println("ERROR LOADING WINDOW!");
+            e.printStackTrace();
+        }
+    }
+
+    // Carrega uma janela
+    public void loadWindow(Button btn, String fxml) {
+        Stage stage=(Stage) btn.getScene().getWindow();
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(getClass().getResource(fxml), Main.getResourceBundle());
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
@@ -130,5 +131,9 @@ public class MainWindowController {
             if (! Character.isDigit(word.charAt(i))) return false;
         }
         return true;
+    }
+
+    public static GregorianCalendar getProgramDate() {
+        return programDate;
     }
 }

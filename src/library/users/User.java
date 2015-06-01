@@ -1,5 +1,7 @@
 package library.users;
 
+import library.books.Book;
+
 import java.util.Date;
 
 /**
@@ -12,6 +14,7 @@ public abstract class User {
     private long userId;
     private boolean blocked;
     private Date unblockDate;
+    public Book[] books;
 
     public User(String firstName, String lastName, String email, long userId) {
         this.firstName = firstName;
@@ -70,5 +73,17 @@ public abstract class User {
 
     public Date getUnblockDate() {
         return unblockDate;
+    }
+
+    public abstract int getBorrowTime();
+
+    public boolean addBook(Book book) {
+        for (int i = 0; i < books.length; i++) {
+            if (books[i] == null) {
+                books[i] = book;
+                return true;
+            }
+        }
+        return false;
     }
 }
