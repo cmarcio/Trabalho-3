@@ -38,6 +38,9 @@ public class MainWindowController {
         else if (event.getSource() == borrowBook)
             loadWindow(borrowBook, "borrowBookWindow.fxml");
 
+        else if (event.getSource() == returnBook)
+            loadWindow(borrowBook, "returnBookWindow.fxml");
+
         else
             loadWindow(borrowBook, "mainWindow.fxml");
     }

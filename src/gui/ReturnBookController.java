@@ -7,13 +7,16 @@ import javafx.scene.control.TextField;
 import library.books.Book;
 import library.books.BooksFile;
 import library.books.BorrowFile;
-import library.users.*;
+import library.books.ReturnFile;
+import library.users.User;
+import library.users.UsersFile;
 
 /**
- * Created by Marcio on 30/05/2015.
+ * Created by Marcio on 01/06/2015.
  */
-public class BorrowBookController extends MainWindowController {
-    @FXML private Button okBtn;
+public class ReturnBookController extends MainWindowController{
+    @FXML
+    private Button okBtn;
     @FXML private Button cancelBtn;
     @FXML private TextField bookId;
     @FXML private TextField userId;
@@ -22,7 +25,7 @@ public class BorrowBookController extends MainWindowController {
         // Cria um objeto de manipulação de dados
         UsersFile userFile = new UsersFile("UsersReg.txt");
         BooksFile bookFile = new BooksFile("BooksReg.txt");
-        BorrowFile borrowFile = new BorrowFile("BorrowReg.txt");
+        ReturnFile returnFile = new ReturnFile("ReturnReg.txt");
         Book book = null;
         User user = null;
 
@@ -42,18 +45,18 @@ public class BorrowBookController extends MainWindowController {
         else if (bookFile.getBooksFile().exists() && (book = bookFile.searchID(bookId.getText())) == null)
             showError(Main.getResourceBundle().getString("error"), null, Main.getResourceBundle().getString("bookIdAbsent"));
 
-        // Verifica se o livro está disponível
+            // Verifica se o livro está indisponível
 
-        // Verifica se o usuário pode pegar livros
+            // Verifica se o usuário está bloqueado
 
 
-        // Atualiza o arquivo de empréstimos
+        // Atualiza o arquivo de devoluções
         else {
-            // Registra o empréstimo
-            borrowFile.storeBorrow(book, user, getProgramDate());
+            // Registra a devoluçao
+            returnFile.storeReturn(book, user, getProgramDate());
 
             // Exibe mensagem de exito
-            showInformation(Main.getResourceBundle().getString("success"), null, Main.getResourceBundle().getString("bookBorrowed"));
+            showInformation(Main.getResourceBundle().getString("success"), null, Main.getResourceBundle().getString("bookReturned"));
 
             backToMain(okBtn);
         }

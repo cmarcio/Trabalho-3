@@ -2,30 +2,33 @@ package library.books;
 
 import library.users.User;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 /**
  * Created by Marcio on 01/06/2015.
  */
-public class BorrowFile {
-    private File borrowFile;
+public class ReturnFile {
+    private File returnFile;
 
-    public BorrowFile(String fileName) {
+    public ReturnFile(String fileName) {
         // Verifica se o diretório de dados já foi criado
         File folder = new File("data");
         if (!folder.exists())
             folder.mkdir(); // Cria o diretório caso não tenha sido criado
 
         // Cria o arquivo dentro do diretório de dados
-        borrowFile = new File(folder, fileName);
+        returnFile = new File(folder, fileName);
     }
 
-    public void storeBorrow(Book book, User user, GregorianCalendar calendar) {
+    public void storeReturn(Book book, User user, GregorianCalendar calendar) {
         FileWriter fileWriter = null;
         try {
-            fileWriter = new FileWriter(borrowFile, true);
+            fileWriter = new FileWriter(returnFile, true);
             PrintWriter output = new PrintWriter(fileWriter);
 
             String bookId = Long.toString(book.getBookNumber());
@@ -41,7 +44,7 @@ public class BorrowFile {
             fileWriter.close();
 
         } catch (IOException e) {
-            System.err.println("ERROR SAVING BORROW IN FILE!");
+            System.err.println("ERROR SAVING RETURN IN FILE!");
             e.printStackTrace();
         }
     }

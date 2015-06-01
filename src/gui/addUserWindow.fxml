@@ -10,22 +10,22 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.text.*?>
 
-<Pane prefHeight="300.0" prefWidth="500.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="gui.AddUserController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AddUserController">
   <children>
-    <GridPane layoutX="120.0" layoutY="45.0" prefWidth="260.0">
+    <GridPane layoutX="190.0" layoutY="105.0" prefWidth="260.0">
       <children>
-        <TextField id="firstName" fx:id="firstNameField" prefWidth="200.0" promptText="%firstName" text="" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-        <TextField id="lastName" fx:id="lastNameField" prefWidth="200.0" promptText="%lastName" text="" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-        <TextField id="userId" fx:id="emailField" prefWidth="200.0" promptText="%email" text="" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-        <TextField fx:id="userIdField" prefWidth="200.0" promptText="%userId" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-        <SplitMenuButton fx:id="userType" mnemonicParsing="false" prefWidth="260.0" text="%group" GridPane.columnIndex="0" GridPane.rowIndex="5">
+        <TextField id="firstName" fx:id="firstNameField" prefWidth="200.0" promptText="%firstName" text="" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <TextField id="lastName" fx:id="lastNameField" prefWidth="200.0" promptText="%lastName" text="" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <TextField id="userId" fx:id="emailField" prefWidth="200.0" promptText="%email" text="" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+        <TextField fx:id="userIdField" prefWidth="200.0" promptText="%userId" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+        <SplitMenuButton fx:id="userType" mnemonicParsing="false" prefWidth="260.0" text="%group" GridPane.columnIndex="0" GridPane.rowIndex="6">
           <items>
-            <MenuItem mnemonicParsing="false" onAction="#handleSplitMenu" text="%student" fx:id="studentMenu" />
-            <MenuItem mnemonicParsing="false" onAction="#handleSplitMenu" text="%teacher" fx:id="teacherMenu" />
-            <MenuItem mnemonicParsing="false" onAction="#handleSplitMenu" text="%communityMember" fx:id="communityMenu" />
+            <MenuItem fx:id="studentMenu" mnemonicParsing="false" onAction="#handleSplitMenu" text="%student" />
+            <MenuItem fx:id="teacherMenu" mnemonicParsing="false" onAction="#handleSplitMenu" text="%teacher" />
+            <MenuItem fx:id="communityMenu" mnemonicParsing="false" onAction="#handleSplitMenu" text="%communityMember" />
           </items>
         </SplitMenuButton>
-        <GridPane GridPane.columnIndex="0" GridPane.rowIndex="6">
+        <GridPane GridPane.columnIndex="0" GridPane.rowIndex="8">
           <children>
             <Button fx:id="okBtn" contentDisplay="LEFT" defaultButton="true" mnemonicParsing="false" onAction="#handleOkButtonAction" text="%ok" textAlignment="LEFT" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
               <GridPane.margin>
@@ -57,11 +57,13 @@
       </columnConstraints>
       <rowConstraints>
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       </rowConstraints>
     </GridPane>
