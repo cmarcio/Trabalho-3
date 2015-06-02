@@ -13,16 +13,6 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainWindowController">
   <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="480.0" stroke="BLACK" strokeType="INSIDE" width="640.0">
-         <fill>
-            <LinearGradient endX="0.4952380952380952" endY="0.03333333333333333" startX="0.5" startY="0.8714285714285714">
-               <stops>
-                  <Stop color="#46a9ff" />
-                  <Stop color="#464465" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </fill>
-      </Rectangle>
     <GridPane layoutX="239.0" layoutY="150.0" prefWidth="163.0">
       <children>
         <Button fx:id="addUser" mnemonicParsing="false" onAction="#handleButtonAction" prefWidth="119.0" text="%addUser" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
@@ -30,7 +20,7 @@
         <Button fx:id="borrowBook" mnemonicParsing="false" onAction="#handleButtonAction" prefWidth="119.0" text="%borrowBook" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" />
         <Button fx:id="returnBook" mnemonicParsing="false" onAction="#handleButtonAction" prefWidth="119.0" text="%returnBook" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" />
             <Button fx:id="listRegisters" mnemonicParsing="false" onAction="#handleButtonAction" prefWidth="119.0" text="%listRegisters" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" />
-        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="%mainMenu" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.vgrow="ALWAYS">
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%mainMenu" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.vgrow="ALWAYS">
           <font>
             <Font name="System Bold" size="20.0" />
           </font>

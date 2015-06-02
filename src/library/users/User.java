@@ -21,6 +21,7 @@ public abstract class User {
     private boolean blocked;
     private GregorianCalendar unblockDate;
     public Book[] books;
+    private String group;
 
     public User(String firstName, String lastName, String email, long userId) {
         this.firstName = firstName;

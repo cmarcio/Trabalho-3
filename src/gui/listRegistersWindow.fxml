@@ -8,18 +8,19 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ListRegistersController">
    <children>
-      <TabPane layoutX="82.0" layoutY="79.0" prefHeight="297.0" prefWidth="477.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane prefHeight="429.0" prefWidth="640.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="%listUsers">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="340.0" prefWidth="389.0">
                      <children>
-                        <TableView fx:id="userTable" prefHeight="271.0" prefWidth="477.0">
+                        <TableView fx:id="userTable" prefHeight="401.0" prefWidth="640.0">
                           <columns>
-                              <TableColumn fx:id="firstNameCol" prefWidth="75.0" text="%firstName" />
-                              <TableColumn fx:id="lastNameCol" prefWidth="75.0" text="%lastName" />
-                              <TableColumn prefWidth="75.0" text="%email" />
-                              <TableColumn prefWidth="75.0" text="%userId" />
+                              <TableColumn fx:id="firstNameCol" prefWidth="127.0" text="%firstName" />
+                              <TableColumn fx:id="lastNameCol" prefWidth="127.0" text="%lastName" />
+                              <TableColumn fx:id="emailCol" prefWidth="127.0" text="%email" />
+                              <TableColumn fx:id="userIdCol" prefWidth="127.0" text="%userId" />
+                              <TableColumn fx:id="groupCol" prefWidth="127.0" text="%group" />
                           </columns>
                         </TableView>
                      </children>
@@ -28,21 +29,42 @@
           </Tab>
           <Tab text="%listBooks">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView prefHeight="401.0" prefWidth="640.0">
+                           <columns>
+                              <TableColumn prefWidth="91.0" text="%bookId" />
+                              <TableColumn prefWidth="91.0" text="%title" />
+                              <TableColumn prefWidth="91.0" text="%author" />
+                              <TableColumn prefWidth="91.0" text="%publisher" />
+                              <TableColumn prefWidth="91.0" text="%year" />
+                              <TableColumn prefWidth="91.0" text="%edition" />
+                              <TableColumn prefWidth="91.0" text="%group" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
             </content>
           </Tab>
             <Tab text="%listBorrows">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView prefHeight="401.0" prefWidth="640.0">
+                           <columns>
+                              <TableColumn prefWidth="100.0" text="%userId" />
+                              <TableColumn prefWidth="100.0" text="%bookId" />
+                              <TableColumn prefWidth="100.0" text="%day" />
+                              <TableColumn prefWidth="100.0" text="%month" />
+                              <TableColumn prefWidth="100.0" text="%year" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
               </content>
             </Tab>
         </tabs>
       </TabPane>
-      <Text layoutX="254.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%listRegisters">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Text>
-      <Button fx:id="cancelBtn" cancelButton="true" layoutX="245.0" layoutY="422.0" mnemonicParsing="false" onAction="#handleCancelButton" prefHeight="25.0" prefWidth="150.0" text="%cancel" />
+      <Button fx:id="cancelBtn" cancelButton="true" layoutX="245.0" layoutY="441.0" mnemonicParsing="false" onAction="#handleCancelButton" prefHeight="25.0" prefWidth="150.0" text="%cancel" />
    </children>
 </Pane>

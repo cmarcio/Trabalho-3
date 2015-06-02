@@ -10,6 +10,7 @@ import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import library.books.Book;
 import library.users.User;
 import library.users.UsersFile;
 
@@ -23,13 +24,16 @@ import java.util.ResourceBundle;
  */
 public class ListRegistersController extends MainWindowController implements Initializable{
     @FXML private Button cancelBtn;
-    @FXML private Button listUsersBtn;
-    @FXML private Button listBooksBtn;
-    @FXML private Button listBorrowsBtn;
 
     @FXML private TableView<User> userTable;
     @FXML private TableColumn<User, String> firstNameCol;
     @FXML private TableColumn<User, String> lastNameCol;
+    @FXML private TableColumn<User, String> emailCol;
+    @FXML private TableColumn<User, Long> userIdCol;
+    @FXML private TableColumn<User, String> groupCol;
+
+    @FXML private TableView<Book> bookTable;
+    @FXML private TableColumn<Book, String> titleCol;
 
     private ObservableList<User> userData = FXCollections.observableArrayList();
     private ObservableList<User> bookData = FXCollections.observableArrayList();
@@ -54,6 +58,12 @@ public class ListRegistersController extends MainWindowController implements Ini
 
         firstNameCol.setCellValueFactory(new PropertyValueFactory<User, String>("firstName"));
         lastNameCol.setCellValueFactory(new PropertyValueFactory<User, String>("lastName"));
+        emailCol.setCellValueFactory(new PropertyValueFactory<User, String>("email"));
+        userIdCol.setCellValueFactory(new PropertyValueFactory<User, Long>("userId"));
+        groupCol.setCellValueFactory(new PropertyValueFactory<User, String>("group"));
+
+
+
 
         userTable.setItems(userData);
     }
