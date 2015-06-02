@@ -31,15 +31,15 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView prefHeight="401.0" prefWidth="640.0">
+                        <TableView fx:id="bookTable" prefHeight="401.0" prefWidth="640.0">
                            <columns>
-                              <TableColumn prefWidth="91.0" text="%bookId" />
-                              <TableColumn prefWidth="91.0" text="%title" />
-                              <TableColumn prefWidth="91.0" text="%author" />
-                              <TableColumn prefWidth="91.0" text="%publisher" />
-                              <TableColumn prefWidth="91.0" text="%year" />
-                              <TableColumn prefWidth="91.0" text="%edition" />
-                              <TableColumn prefWidth="91.0" text="%group" />
+                              <TableColumn fx:id="bookIdCol" prefWidth="91.0" text="%bookId" />
+                              <TableColumn fx:id="titleCol" prefWidth="91.0" text="%title" />
+                              <TableColumn fx:id="authorCol" prefWidth="91.0" text="%author" />
+                              <TableColumn fx:id="publisherCol" prefWidth="91.0" text="%publisher" />
+                              <TableColumn fx:id="yearCol" prefWidth="91.0" text="%year" />
+                              <TableColumn fx:id="editionCol" prefWidth="91.0" text="%edition" />
+                              <TableColumn fx:id="bookGroupCol" prefWidth="91.0" text="%group" />
                            </columns>
                         </TableView>
                      </children>
@@ -50,13 +50,15 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView prefHeight="401.0" prefWidth="640.0">
+                        <TableView fx:id="borrowTable" prefHeight="401.0" prefWidth="640.0">
                            <columns>
-                              <TableColumn prefWidth="100.0" text="%userId" />
-                              <TableColumn prefWidth="100.0" text="%bookId" />
-                              <TableColumn prefWidth="100.0" text="%day" />
-                              <TableColumn prefWidth="100.0" text="%month" />
-                              <TableColumn prefWidth="100.0" text="%year" />
+                              <TableColumn fx:id="borrowUserCol" prefWidth="92.0" text="%userId" />
+                              <TableColumn fx:id="borrowBookCol" prefWidth="92.0" text="%bookId" />
+                              <TableColumn fx:id="borrowYearCol" prefWidth="92.0" text="%year" />
+                              <TableColumn fx:id="borrowMonthCol" prefWidth="92.0" text="%month" />
+                              <TableColumn fx:id="borrowDayCol" prefWidth="92.0" text="%day" />
+                              <TableColumn fx:id="borrowHourCol" prefWidth="92.0" text="%hour" />
+                              <TableColumn fx:id="borrowMinutesCol" prefWidth="92.0" text="%min" />
                            </columns>
                         </TableView>
                      </children>

@@ -1,6 +1,7 @@
 package library.books;
 
 import java.io.*;
+import java.util.ArrayList;
 
 /**
  * Created by Marcio on 30/05/2015.
@@ -64,7 +65,7 @@ public class BooksFile {
             while ((line = input.readLine()) != null){
                 // Quebra a linha em partes
                 String[] fields = line.split(",");
-                // Verifica se o campo user ID está nesse registro
+                // Verifica se o campo book ID está nesse registro
                 if (fields[5].equals(ID)) {
                     // Cria um novo objeto de acordo com o registro lido
                     bookFound = createBookByReg(fields);
@@ -100,6 +101,34 @@ public class BooksFile {
                 break;
         }
         return newBook;
+    }
+
+    public ArrayList<Book> getBookList() {
+        ArrayList<Book> bookList = new ArrayList<Book>();
+        FileReader reader = null;
+        Book bookFound = null;
+        String line;
+        try {
+            reader = new FileReader(booksFile);
+            BufferedReader input = new BufferedReader(reader);
+
+            // Le linha por linha do arquivo até o fim
+            while ((line = input.readLine()) != null){
+                // Quebra a linha em partes
+                String[] fields = line.split(",");
+                // Cria um novo objeto de acordo com o registro lido
+                bookFound = createBookByReg(fields);
+                // Adiciona o usuánio na lista
+                bookList.add(bookFound);
+            }
+            input.close();
+            reader.close();
+
+        } catch (IOException e) {
+            System.err.println("ERROR WHILE LOOKING FOR ID IN BOOK FILE!");
+            e.printStackTrace();
+        }
+        return bookList;
     }
 
     public File getBooksFile() {
