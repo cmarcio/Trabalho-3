@@ -7,12 +7,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/library/books/BooksFile.java" afterPath="$PROJECT_DIR$/src/library/books/BooksFile.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/ListRegistersController.java" afterPath="$PROJECT_DIR$/src/gui/ListRegistersController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MessagesBundle_en_US.properties" afterPath="$PROJECT_DIR$/src/MessagesBundle_en_US.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MessagesBundle_pt_BR.properties" afterPath="$PROJECT_DIR$/src/MessagesBundle_pt_BR.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/library/Register.java" afterPath="$PROJECT_DIR$/src/library/Register.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/listRegistersWindow.fxml" afterPath="$PROJECT_DIR$/src/gui/listRegistersWindow.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -685,7 +679,7 @@
       <workItem from="1433102814890" duration="10138000" />
       <workItem from="1433118438448" duration="12103000" />
       <workItem from="1433173622613" duration="11710000" />
-      <workItem from="1433187565967" duration="43885000" />
+      <workItem from="1433187565967" duration="43908000" />
     </task>
     <task id="LOCAL-00001" summary="Classe criadas">
       <created>1432488352283</created>
@@ -837,11 +831,17 @@
       <option name="project" value="LOCAL" />
       <updated>1433268637647</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Listagem concluida">
+      <created>1433276063331</created>
+      <option name="number" value="00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1433276063331</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="177306000" />
+    <option name="totallyTimeSpent" value="177329000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -898,7 +898,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Classe Boook adicionada" />
     <MESSAGE value="Classe criadas" />
     <MESSAGE value="Data de entrega adicionada" />
     <MESSAGE value="I18N" />
@@ -923,7 +922,8 @@
     <MESSAGE value="Verifica se o livro está disponível" />
     <MESSAGE value="Listagem de usuários cadastrados" />
     <MESSAGE value="Mudei as janelas" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mudei as janelas" />
+    <MESSAGE value="Listagem concluida" />
+    <option name="LAST_COMMIT_MESSAGE" value="Listagem concluida" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
