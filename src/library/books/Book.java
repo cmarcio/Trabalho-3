@@ -135,15 +135,15 @@ public abstract class Book {
 
     public abstract String getBookType();
 
-    public boolean isLate(User user) {
+    public boolean isLate(GregorianCalendar realReturn, User user) {
         // Se o prazo de entrega é menor do que a data de entrega
-        GregorianCalendar maxDate = (GregorianCalendar) this.getBorrowDate().clone();
-        maxDate.add(Calendar.DATE, user.getBorrowTime());
-        if ( maxDate.compareTo(this.getReturnDate()) < 0) {
+        if ( this.getReturnDate().compareTo(realReturn) < 0) {
             // Calcula data de desbloqueio
-            int nDays = (int) ((this.getReturnDate().getTimeInMillis() - maxDate.getTimeInMillis()) / (1000 * 60 * 60 * 24));
+            int nDays = (int) ((this.getReturnDate().getTimeInMillis() - realReturn.getTimeInMillis()) / (1000 * 60 * 60 * 24));
+            System.out.println(nDays);
+
             // Salva a data de desbloqueio
-            GregorianCalendar unblockDate = (GregorianCalendar) this.getReturnDate().clone();
+            GregorianCalendar unblockDate = (GregorianCalendar) realReturn.clone();
             unblockDate.add(Calendar.DATE, nDays);
             user.updateUnblockDate(unblockDate);
             return true;

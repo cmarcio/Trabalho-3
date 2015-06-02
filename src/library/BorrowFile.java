@@ -41,7 +41,15 @@ public class BorrowFile {
             String minutes = Integer.toString(time.getMinutes());
 
             // Escreve os dados do livro no arquivo
-            output.printf("%s,%s,%s,%s,%s,%s,%s\n", bookId, userId, date, month, year, hour, minutes);
+            output.printf("%s,%s,%s,%s,%s,%s,%s,", bookId, userId, date, month, year, hour, minutes);
+
+            // Calcula a data de devolução
+            GregorianCalendar returnDate = (GregorianCalendar) calendar.clone();
+            returnDate.add(Calendar.DATE, user.getBorrowTime());
+            date = Integer.toString(returnDate.get(Calendar.DATE));
+            month = Integer.toString(returnDate.get(Calendar.MONTH) + 1);
+            year = Integer.toString(returnDate.get(Calendar.YEAR));
+            output.printf("%s,%s,%s,%s,%s\n", year, month, date, hour, minutes);
 
             output.close();
             fileWriter.close();
@@ -69,6 +77,42 @@ public class BorrowFile {
                     // Cria um novo objeto e adiciona os valores aos campos
                     GregorianCalendar calendar = new GregorianCalendar(Integer.parseInt(fields[4]), Integer.parseInt(fields[3]), Integer.parseInt(fields[2]), Integer.parseInt(fields[5]), Integer.parseInt(fields[6]));
                     Register reg = new Register(calendar, Long.parseLong(fields[0]), Long.parseLong(fields[1]));
+                    // Adiciona o objeto a list
+                    list.add(reg);
+                }
+
+                input.close();
+                reader.close();
+            } catch (IOException e) {
+                System.err.println("ERROR WHILE READING BORROW FILE!");
+                e.printStackTrace();
+            }
+        }
+        return list;
+    }
+
+    public ArrayList<BorrowRegister> toBorrowRegisters() {
+        ArrayList<BorrowRegister> list = new ArrayList<BorrowRegister>();
+        FileReader reader = null;
+        String line;
+
+        if (borrowFile.exists()) {
+            try {
+                reader = new FileReader(borrowFile);
+                BufferedReader input = new BufferedReader(reader);
+
+                // Le linha por linha do arquivo até o fim
+                while ((line = input.readLine()) != null) {
+                    // Quebra a linha em partes
+                    String[] fields = line.split(",");
+                    // Cria um novo objeto e adiciona os valores aos campos
+                    GregorianCalendar calendar = new GregorianCalendar(Integer.parseInt(fields[4]), Integer.parseInt(fields[3]), Integer.parseInt(fields[2]), Integer.parseInt(fields[5]), Integer.parseInt(fields[6]));
+                    BorrowRegister reg = new BorrowRegister(calendar, Long.parseLong(fields[0]), Long.parseLong(fields[1]));
+
+                    // Cria o calendário com a data de devolução
+                    calendar = new GregorianCalendar(Integer.parseInt(fields[7]), Integer.parseInt(fields[8]), Integer.parseInt(fields[9]), Integer.parseInt(fields[10]), Integer.parseInt(fields[11]));
+                    reg.setMaxReturnDate(calendar);
+
                     // Adiciona o objeto a list
                     list.add(reg);
                 }

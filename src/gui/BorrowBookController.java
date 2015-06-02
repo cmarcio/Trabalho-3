@@ -10,6 +10,8 @@ import library.books.BooksFile;
 import library.BorrowFile;
 import library.users.*;
 
+import java.util.Calendar;
+
 /**
  * Created by Marcio on 30/05/2015.
  */
@@ -51,8 +53,20 @@ public class BorrowBookController extends MainWindowController {
         }
 
         // Verifica se o usuário pode pegar livros
-        else if (user != null && user.isBlocked()) {
+        else if (user != null && user.isBlocked(borrowFile, returnFile)) {
             showError(Main.getResourceBundle().getString("error"), null, Main.getResourceBundle().getString("userBlocked"));
+            if (user.getUnblockDate() != null) {
+                String day = Integer.toString(user.getUnblockDate().get(Calendar.DAY_OF_MONTH));
+                String month = Integer.toString(user.getUnblockDate().get(Calendar.MONTH));
+                String year = Integer.toString(user.getUnblockDate().get(Calendar.YEAR));
+                String date = day.concat("/").concat(month).concat("/").concat(year);
+                showInformation(Main.getResourceBundle().getString("unblockDate"), null, date);
+            }
+        }
+
+        // Verifica se já alugou o número máximo de livros
+        else if(user != null && !user.canBorrow()) {
+            showError(Main.getResourceBundle().getString("error"), null, Main.getResourceBundle().getString("maxBookNumber"));
         }
 
         // Atualiza o arquivo de empréstimos
