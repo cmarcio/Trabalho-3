@@ -20,6 +20,7 @@ public class MainWindowController {
     @FXML private Button borrowBook;
     @FXML private Button returnBook;
     @FXML private Button okBtn;
+    @FXML private Button listRegisters;
     @FXML private DatePicker datePicker;
     public static GregorianCalendar programDate;
 
@@ -41,6 +42,8 @@ public class MainWindowController {
         else if (event.getSource() == returnBook)
             loadWindow(borrowBook, "returnBookWindow.fxml");
 
+        else if (event.getSource() == listRegisters)
+            loadWindow(listRegisters, "listRegistersWindow.fxml");
         else
             loadWindow(borrowBook, "mainWindow.fxml");
     }

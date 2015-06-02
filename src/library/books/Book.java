@@ -1,12 +1,12 @@
 package library.books;
 
+import gui.MainWindowController;
 import library.BorrowFile;
 import library.Register;
 import library.ReturnFile;
+import library.users.User;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
+import java.util.*;
 
 /**
  * Created by Marcio on 24/05/2015.
@@ -19,8 +19,8 @@ public abstract class Book {
     private int edition;
     private long bookNumber;
     private boolean available;
-    private Date borrowDate;
-    private Date returnDate;
+    private GregorianCalendar borrowDate;
+    private GregorianCalendar returnDate;
 
     public Book(String title, String author, String publisher, int year, int edition, long bookNumber) {
         this.title = title;
@@ -92,42 +92,62 @@ public abstract class Book {
 
     public boolean isAvailable(BorrowFile borrowFile, ReturnFile returnFile) {
         this.setAvailable(true);
+
         // Cria as listas de empréstimos e devoluções
         ArrayList<Register> borrows = borrowFile.toRegisters();
         ArrayList<Register> returns = returnFile.toRegisters();
+
         // Verifica se algum livro já foi emprestado
         if (borrows.isEmpty())
             return true;
+
         // Ordena as listas
         Collections.sort(borrows);
         Collections.sort(returns);
+
         // Verfica a disponibilidade do livro
         for (int i = 0; i < borrows.size(); i++) {
-            if (borrows.get(i).getBookId() == bookNumber) {
+            if (borrows.get(i).getBookId() == getBookNumber()) {
                 this.setAvailable(false);
                 for (int j = 0; j < returns.size(); j++)
-                    if (returns.get(j).getBookId() == bookNumber && returns.get(j).getCalendar().compareTo(borrows.get(i).getCalendar()) >= 0)
+                    if (returns.get(j).getBookId() == getBookNumber() && returns.get(j).getCalendar().compareTo(borrows.get(i).getCalendar()) >= 0)
                         this.setAvailable(true);
             }
         }
         return isAvailable();
     }
 
-    public void setReturnDate(Date returnDate) {
+    public void setReturnDate(GregorianCalendar returnDate) {
         this.returnDate = returnDate;
     }
 
-    public Date getReturnDate() {
+    public GregorianCalendar getReturnDate() {
         return returnDate;
     }
 
-    public void setBorrowDate(Date borrowDate) {
+    public void setBorrowDate(GregorianCalendar borrowDate) {
         this.borrowDate = borrowDate;
     }
 
-    public Date getBorrowDate() {
+    public GregorianCalendar getBorrowDate() {
         return borrowDate;
     }
 
     public abstract String getBookType();
+
+    public boolean isLate(User user) {
+        // Se o prazo de entrega é menor do que a data de entrega
+        GregorianCalendar maxDate = (GregorianCalendar) this.getBorrowDate().clone();
+        maxDate.add(Calendar.DATE, user.getBorrowTime());
+        if ( maxDate.compareTo(this.getReturnDate()) < 0) {
+            // Calcula data de desbloqueio
+            int nDays = (int) ((this.getReturnDate().getTimeInMillis() - maxDate.getTimeInMillis()) / (1000 * 60 * 60 * 24));
+            // Salva a data de desbloqueio
+            GregorianCalendar unblockDate = (GregorianCalendar) this.getReturnDate().clone();
+            unblockDate.add(Calendar.DATE, nDays);
+            user.updateUnblockDate(unblockDate);
+            return true;
+        }
+        return false;
+    }
 }

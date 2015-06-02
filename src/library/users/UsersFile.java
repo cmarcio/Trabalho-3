@@ -1,6 +1,7 @@
 package library.users;
 
 import java.io.*;
+import java.util.ArrayList;
 
 /**
  * Created by Marcio on 26/05/2015.
@@ -92,6 +93,34 @@ public class UsersFile {
                 break;
         }
         return newUser;
+    }
+
+    public ArrayList<User> getUsersList() {
+        ArrayList<User> userList = new ArrayList<User>();
+        FileReader reader = null;
+        User userFound = null;
+        String line;
+        try {
+            reader = new FileReader(usersFile);
+            BufferedReader input = new BufferedReader(reader);
+
+            // Le linha por linha do arquivo até o fim
+            while ((line = input.readLine()) != null){
+                // Quebra a linha em partes
+                String[] fields = line.split(",");
+                // Cria um novo objeto de acordo com o registro lido
+                userFound = createUserByReg(fields);
+                // Adiciona o usuánio na lista
+                userList.add(userFound);
+            }
+            input.close();
+            reader.close();
+
+        } catch (IOException e) {
+            System.err.println("ERROR WHILE LOOKING FOR ID IN USER FILE!");
+            e.printStackTrace();
+        }
+        return userList;
     }
 
     public File getUsersFile() {

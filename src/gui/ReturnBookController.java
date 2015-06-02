@@ -44,9 +44,6 @@ public class ReturnBookController extends MainWindowController{
         else if (bookFile.getBooksFile().exists() && (book = bookFile.searchID(bookId.getText())) == null)
             showError(Main.getResourceBundle().getString("error"), null, Main.getResourceBundle().getString("bookIdAbsent"));
 
-        // Verifica se o usuário está com o livro
-
-
         // Atualiza o arquivo de devoluções
         else {
             // Registra a devoluçao

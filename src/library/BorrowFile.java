@@ -76,7 +76,7 @@ public class BorrowFile {
                 input.close();
                 reader.close();
             } catch (IOException e) {
-                System.err.println("ERROR WHILE READING BORROWFILE!");
+                System.err.println("ERROR WHILE READING BORROW FILE!");
                 e.printStackTrace();
             }
         }
